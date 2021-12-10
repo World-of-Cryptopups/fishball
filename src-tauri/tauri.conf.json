@@ -55,8 +55,8 @@
       {
         "title": "Fishball",
         "width": 1024,
-        "height": 768,
-        "resizable": false,
+        "height": 600,
+        "resizable": true,
         "fullscreen": false
       }
     ],
