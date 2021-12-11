@@ -9,18 +9,18 @@ const ContractContent = () => {
 
   if (!data)
     return (
-      <p className="text-gray-200 text-lg text-center">
+      <p className="text-neutral-200 text-lg text-center">
         Search a contract name...
       </p>
     );
 
   return (
     <Tab.Group>
-      <Tab.List className="text-gray-400 bg-gray-800 flex items-center justify-end py-1 rounded-xl">
+      <Tab.List className="text-neutral-400 bg-neutral-800 flex items-center justify-end py-1 rounded-xl">
         <Tab
           className={({ selected }) =>
-            `hover:text-gray-300 mx-2 py-1 px-6 rounded-lg ${
-              selected ? "bg-gray-900 text-gray-300" : ""
+            `hover:text-neutral-300 mx-2 py-1 px-6 rounded-lg ${
+              selected ? "bg-neutral-900 text-neutral-300" : ""
             }`
           }
         >
@@ -28,8 +28,8 @@ const ContractContent = () => {
         </Tab>
         <Tab
           className={({ selected }) =>
-            `hover:text-gray-300 mx-2 py-1 px-6 rounded-lg ${
-              selected ? "bg-gray-900 text-gray-300" : ""
+            `hover:text-neutral-300 mx-2 py-1 px-6 rounded-lg ${
+              selected ? "bg-neutral-900 text-neutral-300" : ""
             }`
           }
         >
@@ -37,8 +37,8 @@ const ContractContent = () => {
         </Tab>
         <Tab
           className={({ selected }) =>
-            `hover:text-gray-300 mx-2 py-1 px-6 rounded-lg ${
-              selected ? "bg-gray-900 text-gray-300" : ""
+            `hover:text-neutral-300 mx-2 py-1 px-6 rounded-lg ${
+              selected ? "bg-neutral-900 text-neutral-300" : ""
             }`
           }
         >

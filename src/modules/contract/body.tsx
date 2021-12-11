@@ -10,7 +10,7 @@ const ContractBody = () => {
 
   if (failed) {
     return (
-      <p className="text-lg text-gray-300">
+      <p className="text-lg text-neutral-300">
         Failed to fetch the smart contract. Maybe it doesn't exist?
       </p>
     );

@@ -9,7 +9,7 @@ const ContainerLayout = ({ children }: ContainerLayoutProps) => {
     <div className="">
       <AppHeader />
 
-      <hr className="border-gray-800" />
+      <hr className="border-neutral-800" />
 
       {children}
     </div>

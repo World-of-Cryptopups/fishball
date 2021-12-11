@@ -14,19 +14,19 @@ const SearchForm = () => {
   };
 
   return (
-    <div className="inline-flex items-center bg-gray-800 p-1 rounded-lg">
+    <div className="inline-flex items-center bg-neutral-800 p-1 rounded-lg">
       <input
         ref={inputSearch}
         type="text"
         name="search-input"
         maxLength={13}
         placeholder="Load contract name..."
-        className="py-1 px-5 bg-transparent text-gray-300 text-sm tracking-wide font-medium w-full"
+        className="py-1 px-5 bg-transparent text-neutral-300 text-sm tracking-wide font-medium w-full"
       />
       <button
         onClick={load}
         type="button"
-        className="bg-gray-700 hover:bg-gray-600 py-1 px-3 rounded-lg text-sm font-bold text-gray-300"
+        className="bg-neutral-700 hover:bg-neutral-600 py-1 px-3 rounded-lg text-sm font-bold text-neutral-300"
       >
         load
       </button>
