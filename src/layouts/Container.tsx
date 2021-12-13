@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import AppFooter from "../components/Footer";
 import AppHeader from "../components/Header";
 
 interface ContainerLayoutProps {
@@ -11,7 +12,11 @@ const ContainerLayout = ({ children }: ContainerLayoutProps) => {
 
       <hr className="border-neutral-800" />
 
-      {children}
+      <div className="min-h-screen">{children}</div>
+
+      <hr className="border-neutral-800" />
+
+      <AppFooter />
     </div>
   );
 };
