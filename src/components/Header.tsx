@@ -1,4 +1,5 @@
 import SearchForm from "../modules/header/search-form";
+import SettingsButton from "../modules/header/settings-button";
 
 const AppHeader = () => {
   return (
@@ -7,7 +8,10 @@ const AppHeader = () => {
         fishball
       </h1>
 
-      <SearchForm />
+      <div className="inline-flex items-center">
+        <SearchForm />
+        <SettingsButton />
+      </div>
     </header>
   );
 };

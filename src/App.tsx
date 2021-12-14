@@ -1,15 +1,17 @@
-import AppHeader from "./components/Header";
 import ContainerLayout from "./layouts/Container";
 import ContractContainer from "./modules/contract/container";
 import SearchProvider from "./providers/search-context";
+import SettingsProvider from "./providers/settings-handler";
 
 function App() {
   return (
-    <SearchProvider>
-      <ContainerLayout>
-        <ContractContainer />
-      </ContainerLayout>
-    </SearchProvider>
+    <SettingsProvider>
+      <SearchProvider>
+        <ContainerLayout>
+          <ContractContainer />
+        </ContainerLayout>
+      </SearchProvider>
+    </SettingsProvider>
   );
 }
 

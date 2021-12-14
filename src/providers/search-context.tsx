@@ -4,9 +4,11 @@ import {
   ReactNode,
   SetStateAction,
   useContext,
-  useState,
+  useState
 } from "react";
+import urljoin from "url-join";
 import { FetchABIProps } from "../typings/abi";
+import { useSettings } from "./settings-handler";
 
 interface SearchProviderProps {
   children: ReactNode;
@@ -17,6 +19,7 @@ interface SearchContextProps {
   setQuery: Dispatch<SetStateAction<string | null>>;
   isFetching: boolean;
   search: (q: string) => void;
+  reset: () => void;
   failed: boolean;
   data?: FetchABIProps;
 }
@@ -26,14 +29,24 @@ const SearchContext = createContext<SearchContextProps>({
   setQuery: () => null,
   isFetching: false,
   search: (q: string) => {},
+  reset: () => null,
   failed: false,
 });
 
 const SearchProvider = ({ children }: SearchProviderProps) => {
+  const { endpoint } = useSettings();
+
   const [query, setQuery] = useState<string | null>(null);
   const [isFetching, setIsFetching] = useState(false);
   const [failed, setFailed] = useState(false);
   const [data, setData] = useState<FetchABIProps | undefined>(undefined);
+
+  const reset = () => {
+    setQuery(null);
+    setData(undefined);
+    setIsFetching(false);
+    setFailed(false);
+  };
 
   const search = async (q: string) => {
     if (q === query) return;
@@ -42,7 +55,7 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
     setIsFetching(true);
 
     const f: FetchABIProps | undefined = await fetch(
-      `https://waxtestnet.greymass.com/v1/chain/get_abi`,
+      urljoin(endpoint, "v1/chain/get_abi"),
       {
         method: "POST",
         body: JSON.stringify({
@@ -85,6 +98,7 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
         search,
         failed,
         data,
+        reset
       }}
     >
       {children}

@@ -1,7 +1,7 @@
 import { useSearch } from "../../providers/search-context";
 
 const ContractHeader = () => {
-  const { query, data } = useSearch();
+  const { query } = useSearch();
 
   return (
     <div>
