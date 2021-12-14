@@ -7,14 +7,12 @@ interface ContainerLayoutProps {
 }
 const ContainerLayout = ({ children }: ContainerLayoutProps) => {
   return (
-    <div className="">
+    <div className="min-h-screen">
       <AppHeader />
 
       <hr className="border-neutral-800" />
 
-      <div className="min-h-screen">{children}</div>
-
-      <hr className="border-neutral-800" />
+      <div className="pb-20 z-10">{children}</div>
 
       <AppFooter />
     </div>
