@@ -1,4 +1,5 @@
 import { useSearch } from "../../../providers/search-context";
+import ContractListTable from "./list-tables";
 
 const ContractShowTABLES = () => {
   const { data } = useSearch();
@@ -11,12 +12,7 @@ const ContractShowTABLES = () => {
 
       <ul className="flex items-center flex-wrap mt-4">
         {data.abi?.tables.map((i, index) => (
-          <li
-            key={index}
-            className="bg-neutral-700 hover:bg-neutral-800 text-neutral-300 m-1 py-2 px-6 rounded-lg"
-          >
-            {i.name}
-          </li>
+          <ContractListTable table={i} key={index} />
         ))}
       </ul>
     </div>

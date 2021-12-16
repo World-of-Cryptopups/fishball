@@ -4,8 +4,9 @@ import { Fragment, ReactNode } from "react";
 interface ModalProps {
   children: ReactNode;
   open: boolean;
+  close: () => void;
 }
-const Modal = ({ children, open }: ModalProps) => {
+const Modal = ({ children, open, close }: ModalProps) => {
   return (
     <Transition appear show={open} as={Fragment}>
       <Dialog

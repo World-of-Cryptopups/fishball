@@ -7,14 +7,8 @@ export interface ABIProps {
     base: string;
     fields: { name: string; type: string }[];
   }[];
-  actions: { name: string; type: string; ricardian_contract: string }[];
-  tables: {
-    name: string;
-    type: string;
-    index_type: string;
-    key_names: string[];
-    key_types: string[];
-  }[];
+  actions: ABIActionsProps[];
+  tables: ABITableProps[];
   ricardian_clauses: { id: string; body: string }[];
   error_messages: { error_code: number; error_msg: string }[];
   abi_extensions: { tag: number; value: string }[];
@@ -27,6 +21,20 @@ export interface ABIProps {
       secondary_indices: { [key: string]: { type: string } }[];
     };
   }[];
+}
+
+export interface ABITableProps {
+  name: string;
+  type: string;
+  index_type: string;
+  key_names: string[];
+  key_types: string[];
+}
+
+export interface ABIActionsProps {
+  name: string;
+  type: string;
+  ricardian_contract: string;
 }
 
 // https://github.com/EOSIO/eosjs/blob/master/src/eosjs-rpc-interfaces.ts#L135

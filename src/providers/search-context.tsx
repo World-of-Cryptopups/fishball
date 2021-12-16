@@ -4,7 +4,7 @@ import {
   ReactNode,
   SetStateAction,
   useContext,
-  useState
+  useState,
 } from "react";
 import urljoin from "url-join";
 import { FetchABIProps } from "../typings/abi";
@@ -98,7 +98,7 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
         search,
         failed,
         data,
-        reset
+        reset,
       }}
     >
       {children}
