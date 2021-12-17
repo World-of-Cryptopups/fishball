@@ -1,3 +1,6 @@
+import { useContractTable } from "../../../providers/contract-table";
+import { useSearch } from "../../../providers/search-context";
+
 interface ContractTableModalShowTableRowsProps {
   data: Record<string, any>[];
 }
@@ -13,7 +16,11 @@ function isArray(obj: any) {
 const ContractTableModalShowTableRows = ({
   data,
 }: ContractTableModalShowTableRowsProps) => {
-  const keys = Object.keys(data.length > 0 ? data[0] : {});
+  const { getStructType } = useSearch();
+  const { table } = useContractTable();
+
+  const struct = getStructType(table.type);
+  const keys = struct?.fields.map((i) => i.name) ?? [];
 
   return (
     <div className="overflow-auto bg-neutral-900 p-4 rounded-lg">
