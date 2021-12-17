@@ -2,11 +2,7 @@
 export interface ABIProps {
   version: string;
   types: { new_type_name: string; type: string }[];
-  structs: {
-    name: string;
-    base: string;
-    fields: { name: string; type: string }[];
-  }[];
+  structs: ABIStructProps[];
   actions: ABIActionsProps[];
   tables: ABITableProps[];
   ricardian_clauses: { id: string; body: string }[];
@@ -21,6 +17,12 @@ export interface ABIProps {
       secondary_indices: { [key: string]: { type: string } }[];
     };
   }[];
+}
+
+export interface ABIStructProps {
+  name: string;
+  base: string;
+  fields: { name: string; type: string }[];
 }
 
 export interface ABITableProps {

@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import urljoin from "url-join";
-import { FetchABIProps } from "../typings/abi";
+import { ABIStructProps, FetchABIProps } from "../typings/abi";
 import { useSettings } from "./settings-handler";
 
 interface SearchProviderProps {
@@ -21,6 +21,7 @@ interface SearchContextProps {
   search: (q: string) => void;
   reset: () => void;
   failed: boolean;
+  getStructType: (type: string) => ABIStructProps | undefined;
   data?: FetchABIProps;
 }
 
@@ -30,6 +31,7 @@ const SearchContext = createContext<SearchContextProps>({
   isFetching: false,
   search: (q: string) => {},
   reset: () => null,
+  getStructType: () => undefined,
   failed: false,
 });
 
@@ -40,6 +42,15 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
   const [isFetching, setIsFetching] = useState(false);
   const [failed, setFailed] = useState(false);
   const [data, setData] = useState<FetchABIProps | undefined>(undefined);
+
+  const getStructType = (type: string) => {
+    if (!data) return;
+
+    const f = data.abi?.structs.filter((i) => i.name === type);
+    if (!f) return;
+
+    return f[0];
+  };
 
   const reset = () => {
     setQuery(null);
@@ -99,6 +110,7 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
         failed,
         data,
         reset,
+        getStructType,
       }}
     >
       {children}
