@@ -60,8 +60,6 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
   };
 
   const search = async (q: string) => {
-    if (q === query) return;
-
     setQuery(q);
     setIsFetching(true);
 
