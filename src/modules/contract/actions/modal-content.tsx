@@ -9,14 +9,14 @@ const ContractActionModalContent = () => {
   const actionData = getStructType(action.name);
 
   return (
-    <div>
+    <div className="mb-12">
       <h4 className="text-xl leading-relaxed text-neutral-300 text-right">
         {query}
       </h4>
 
       <Dialog.Title
         as="h3"
-        className="text-3xl font-black leading-6 text-white"
+        className="text-3xl font-black leading-6 text-emerald-500"
       >
         {action.name}
       </Dialog.Title>
@@ -39,7 +39,7 @@ const ContractActionModalContent = () => {
                   className="w-96 py-2 px-4 bg-neutral-900 rounded-l-lg placeholder-neutral-500 text-neutral-100"
                   placeholder={i.name}
                 />
-                <span className="bg-neutral-700 py-2 px-4 rounded-r-lg text-neutral-100">
+                <span className="bg-neutral-700 py-2 px-4 rounded-r-lg text-emerald-400">
                   {i.type}
                 </span>
               </div>

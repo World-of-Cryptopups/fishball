@@ -46,7 +46,7 @@ const ContractTableModalContent = () => {
 
       <Dialog.Title
         as="h3"
-        className="text-3xl font-black leading-6 text-white"
+        className="text-3xl font-black leading-6 text-emerald-500"
       >
         {table.name}
       </Dialog.Title>
@@ -74,7 +74,7 @@ const ContractTableModalContent = () => {
           <button
             onClick={searchQuery}
             type="button"
-            className="py-2 px-3 ml-2 text-neutral-100 rounded-lg bg-neutral-700 hover:bg-neutral-600 inline-flex items-center text-sm"
+            className="py-2 px-3 ml-2 text-neutral-100 rounded-lg bg-emerald-700 hover:bg-emerald-600 inline-flex items-center text-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -27,7 +27,7 @@ const SettingsForm = ({ close }: SettingsFormProps) => {
     <>
       <Dialog.Title
         as="h3"
-        className="text-2xl font-black leading-6 text-white"
+        className="text-2xl font-black leading-6 text-emerald-500"
       >
         Settings
       </Dialog.Title>

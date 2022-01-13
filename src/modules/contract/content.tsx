@@ -16,7 +16,7 @@ const ContractContent = () => {
 
   return (
     <Tab.Group>
-      <Tab.List className="text-neutral-400 bg-neutral-800 flex items-center justify-end py-1 rounded-xl">
+      <Tab.List className="text-neutral-400 bg-neutral-800 flex items-center justify-center py-1 rounded-xl">
         <Tab
           className={({ selected }) =>
             `hover:text-neutral-300 mx-2 py-1 px-6 rounded-lg ${

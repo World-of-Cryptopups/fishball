@@ -8,7 +8,7 @@ const ContractShowTABLES = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-8">
-      <h4 className="text-xl font-extrabold text-neutral-300">TABLES</h4>
+      <h4 className="text-xl font-extrabold text-emerald-400">TABLES</h4>
 
       <ul className="flex items-center flex-wrap mt-4">
         {data.abi?.tables.map((i, index) => (

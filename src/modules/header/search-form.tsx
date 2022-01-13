@@ -26,7 +26,7 @@ const SearchForm = () => {
       <button
         onClick={load}
         type="button"
-        className="bg-neutral-700 hover:bg-neutral-600 py-1 px-3 rounded-lg text-sm font-bold text-neutral-300"
+        className="bg-emerald-700 hover:bg-emerald-600 py-1 px-3 rounded-lg text-sm font-bold text-neutral-100"
       >
         load
       </button>

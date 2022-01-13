@@ -12,7 +12,7 @@ const ContractShowABI = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-8">
-      <h4 className="text-xl font-extrabold text-neutral-300">ABI</h4>
+      <h4 className="text-xl font-extrabold text-emerald-400">ABI</h4>
 
       <div className="mt-4">
         <SyntaxHighlighter
