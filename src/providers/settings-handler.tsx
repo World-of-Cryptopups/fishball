@@ -1,11 +1,11 @@
 import { fs, path } from "@tauri-apps/api";
 import { BaseDirectory } from "@tauri-apps/api/fs";
 import {
-    createContext,
-    ReactNode,
-    useContext,
-    useEffect,
-    useState
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
 
 interface SettingsProviderProps {
@@ -65,9 +65,8 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
       { dir: BaseDirectory.Config }
     );
 
-
     // set new endpoint
-    setEndpoint(newEndpoint)
+    setEndpoint(newEndpoint);
   };
 
   useEffect(() => {
@@ -77,6 +76,9 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
       // try to create the config dir
       await fs
         .createDir("fishball", { dir: BaseDirectory.Config })
+        .then((r) => {
+          console.log("asdasd");
+        })
         .catch((e) => {
           // folder dir exists
         });
@@ -86,20 +88,19 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
 
       let configFile = "";
 
-      // try to get the configfile path in here
-      try {
-        configFile = await path.join(configPath, "settings.json");
-      } catch (e) {
-        await fs.writeFile(
+      await fs
+        .writeFile(
           {
             contents: JSON.stringify(defaultConfig),
             path: "fishball/settings.json",
           },
           { dir: BaseDirectory.Config }
-        );
+        )
+        .catch((e) => {
+          // file exists error should be in here
+        });
 
-        configFile = await path.join(configPath, "settings.json");
-      }
+      configFile = await path.join(configPath, "settings.json");
 
       // read the config then
       const config = await fs.readTextFile(configFile);
@@ -107,7 +108,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
       setEndpoint(JSON.parse(config).endpoint);
     };
 
-    if (endpoint === "") {
+    if (window && endpoint === "") {
       readConfig();
     }
   }, [endpoint]);
